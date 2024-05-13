@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
@@ -38,7 +39,7 @@ namespace AppWindows
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         private void LabeNombre_Click(object sender, EventArgs e)
@@ -123,6 +124,13 @@ public class Alumno
         this._name = name;
         this._apellido = apellido;
         this._registraddo = false;
+    }
+    public Alumno(String name, String apellido, int id )
+    {
+        this._name = name;
+        this._apellido = apellido;
+        this._registraddo = false;
+        this._id = id;
     }
 
     public String Name { get { return _name; } }
