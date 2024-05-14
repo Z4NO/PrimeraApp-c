@@ -20,25 +20,13 @@ namespace AppWindows
         {
             InitializeComponent();
             this.list = lista;
-            RellenarData();
+            CargarUsuarios();
             this.FormClosed += Form2_FormClosed;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             
-
-        }
-        private void RellenarData()
-        {
-            foreach (Alumno alumno in list)
-            {
-                int n = dataGridView1.Rows.Add();
-
-                dataGridView1.Rows[n].Cells[0].Value = alumno.Name;
-                dataGridView1.Rows[n].Cells[1].Value = alumno.Apelliddo;
-                dataGridView1.Rows[n].Cells[2].Value = alumno.Id;
-            }
 
         }
         private void Form2_FormClosed(Object sender, FormClosedEventArgs e)
@@ -69,23 +57,30 @@ namespace AppWindows
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 // Iterar sobre los resultados
-                while (reader.Read())
+                if (reader.FieldCount == 0)
                 {
-                    // Acceder a los datos de cada fila usando los nombres de las columnas o sus índices
-                    string nombre = reader["Nombre"].ToString();
-                    string apellido = reader["Apellido"].ToString();
-                    int id = Convert.ToInt32(reader["ID"]);
-
-                    Alumno alum = new Alumno(nombre,apellido, id);
-                    list.Add(alum);
-
-                    int n = dataGridView1.Rows.Add();
-
-                    dataGridView1.Rows[n].Cells[0].Value = alum.Name;
-                    dataGridView1.Rows[n].Cells[1].Value = alum.Apelliddo;
-                    dataGridView1.Rows[n].Cells[2].Value = alum.Id;
+                    MessageBox.Show("Todavía no hay alumnos cargados en la base de datos");
                 }
+                else
+                {
+                    while (reader.Read())
+                    {
+                        // Acceder a los datos de cada fila usando los nombres de las columnas o sus índices
+                        string nombre = reader["Nombre"].ToString();
+                        string apellido = reader["Apellido"].ToString();
+                        int id = Convert.ToInt32(reader["ID"]);
 
+                        Alumno alum = new Alumno(nombre, apellido, id);
+                        list.Add(alum);
+
+                        int n = dataGridView1.Rows.Add();
+
+                        dataGridView1.Rows[n].Cells[0].Value = alum.Name;
+                        dataGridView1.Rows[n].Cells[1].Value = alum.Apelliddo;
+                        dataGridView1.Rows[n].Cells[2].Value = alum.Id;
+                    }
+
+                }
                 // Cerrar el lector de datos
                 reader.Close();
 

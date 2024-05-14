@@ -37,6 +37,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.REGISTRADO = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,12 +47,13 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nombre,
             this.Apellidos,
-            this.ID});
-            this.dataGridView1.Location = new System.Drawing.Point(857, 27);
+            this.ID,
+            this.REGISTRADO});
+            this.dataGridView1.Location = new System.Drawing.Point(745, 25);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(428, 455);
+            this.dataGridView1.Size = new System.Drawing.Size(549, 455);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -121,13 +123,20 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(361, 356);
+            this.button1.Location = new System.Drawing.Point(350, 346);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(137, 35);
             this.button1.TabIndex = 5;
             this.button1.Text = "Añadir";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // REGISTRADO
+            // 
+            this.REGISTRADO.HeaderText = "REGISTRAR";
+            this.REGISTRADO.MinimumWidth = 6;
+            this.REGISTRADO.Name = "REGISTRADO";
+            this.REGISTRADO.Width = 125;
             // 
             // Form2
             // 
@@ -161,5 +170,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewButtonColumn REGISTRADO;
     }
 }
