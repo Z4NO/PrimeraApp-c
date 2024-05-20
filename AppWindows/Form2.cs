@@ -399,6 +399,8 @@ namespace AppWindows
                 Enviar_Email(body);
             }
         }
+
+       
     }
 }
 public class Alumno

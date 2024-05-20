@@ -61,32 +61,58 @@ namespace AppWindows
         {
             try
             {
-                
                 conexionConnection.Open();
 
-                // Crear la consulta SQL con parámetros
-                String Select = "SELECT * FROM admin WHERE Nombre =" + "'" + textBox1.Text + "'";
-                MySqlCommand cmd = new MySqlCommand(Select, conexionConnection);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                reader.Read();
-                if (textBox2.Text.Equals(reader["Contraseña"].ToString()) && reader != null)
+                // Consulta para el admin
+                string selectAdminQuery = "SELECT * FROM admin WHERE Nombre = @nombre";
+                using (MySqlCommand cmd = new MySqlCommand(selectAdminQuery, conexionConnection))
                 {
-                    Form2 Ventana2 = new Form2(list);
-                    Ventana2.ShowDialog();
-                    conexionConnection.Close();
+                    cmd.Parameters.AddWithValue("@nombre", textBox1.Text);
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read() && textBox2.Text.Equals(reader["Contraseña"].ToString()))
+                        {
+                            MessageBox.Show("Bienvenido " + textBox1.Text);
+                            Form2 Ventana2 = new Form2(list);
+                            Ventana2.ShowDialog();
+                        }
+                        else
+                        {
+                            reader.Close();
+
+                            // Consulta para el usuario
+                            string selectUserQuery = "SELECT * FROM users WHERE Nombre = @nombre";
+                            using (MySqlCommand cmdUser = new MySqlCommand(selectUserQuery, conexionConnection))
+                            {
+                                cmdUser.Parameters.AddWithValue("@nombre", textBox1.Text);
+                                using (MySqlDataReader readerUser = cmdUser.ExecuteReader())
+                                {
+                                    if (readerUser.Read() && Convert.ToBoolean(readerUser["Registrado"]) && textBox2.Text.Equals("user"))
+                                    {
+                                        MessageBox.Show("Bienvenido " + textBox1.Text);
+                                        Form3 Ventana3 = new Form3(textBox1.Text);
+                                        Ventana3.ShowDialog();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Usuario o contraseña incorrecta o No estas todavía registrado");
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Usuario o contraseña incorrecta");
-                }
-                
-            }catch(Exception ex)
-            {
-                MessageBox.Show("No se pudo realizar la siguiente operacion por el siguiente motivo =  " + ex.Message);  
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo realizar la siguiente operación por el siguiente motivo: " + ex.Message);
+            }
+            
         }
-     
+
+
+
     }
-    
+
 }
 

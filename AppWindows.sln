@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppWindows", "AppWindows\AppWindows.csproj", "{2C0CCB51-E873-45E8-8AC9-24937CE3632D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatRoom", "ChatRoom\ChatRoom.csproj", "{B336F74D-95E7-4574-94F8-77E0689B5EE3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2C0CCB51-E873-45E8-8AC9-24937CE3632D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C0CCB51-E873-45E8-8AC9-24937CE3632D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C0CCB51-E873-45E8-8AC9-24937CE3632D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B336F74D-95E7-4574-94F8-77E0689B5EE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B336F74D-95E7-4574-94F8-77E0689B5EE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B336F74D-95E7-4574-94F8-77E0689B5EE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B336F74D-95E7-4574-94F8-77E0689B5EE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
