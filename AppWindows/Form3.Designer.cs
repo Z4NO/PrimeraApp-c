@@ -30,34 +30,36 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.BarraTitulo = new System.Windows.Forms.Panel();
+            this.BtnRestaurar = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.MenuVertical = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.BtnRestaurar = new System.Windows.Forms.PictureBox();
-            this.panelControaldor = new System.Windows.Forms.Panel();
-            this.Tareas = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.Tareas = new System.Windows.Forms.Button();
+            this.panelControaldor = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.BarraTitulo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnRestaurar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.MenuVertical.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BtnRestaurar)).BeginInit();
-            this.panelControaldor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.panelControaldor.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // BarraTitulo
@@ -73,6 +75,44 @@
             this.BarraTitulo.Size = new System.Drawing.Size(1476, 35);
             this.BarraTitulo.TabIndex = 1;
             this.BarraTitulo.Paint += new System.Windows.Forms.PaintEventHandler(this.BarraTitulo_Paint);
+            // 
+            // BtnRestaurar
+            // 
+            this.BtnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("BtnRestaurar.Image")));
+            this.BtnRestaurar.Location = new System.Drawing.Point(1348, 4);
+            this.BtnRestaurar.Name = "BtnRestaurar";
+            this.BtnRestaurar.Size = new System.Drawing.Size(25, 25);
+            this.BtnRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.BtnRestaurar.TabIndex = 3;
+            this.BtnRestaurar.TabStop = false;
+            this.BtnRestaurar.Click += new System.EventHandler(this.BtnRestaurar_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(1302, 4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 2;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(1395, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
             // btnCerrar
             // 
@@ -106,79 +146,6 @@
             this.MenuVertical.TabIndex = 2;
             this.MenuVertical.Paint += new System.Windows.Forms.PaintEventHandler(this.MenuVertical_Paint);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1395, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(1302, 4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
-            // 
-            // BtnRestaurar
-            // 
-            this.BtnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("BtnRestaurar.Image")));
-            this.BtnRestaurar.Location = new System.Drawing.Point(1348, 4);
-            this.BtnRestaurar.Name = "BtnRestaurar";
-            this.BtnRestaurar.Size = new System.Drawing.Size(25, 25);
-            this.BtnRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.BtnRestaurar.TabIndex = 3;
-            this.BtnRestaurar.TabStop = false;
-            this.BtnRestaurar.Click += new System.EventHandler(this.BtnRestaurar_Click);
-            // 
-            // panelControaldor
-            // 
-            this.panelControaldor.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panelControaldor.Controls.Add(this.panel2);
-            this.panelControaldor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControaldor.Location = new System.Drawing.Point(220, 35);
-            this.panelControaldor.Name = "panelControaldor";
-            this.panelControaldor.Size = new System.Drawing.Size(1256, 621);
-            this.panelControaldor.TabIndex = 3;
-            this.panelControaldor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControaldor_Paint);
-            // 
-            // Tareas
-            // 
-            this.Tareas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(41)))));
-            this.Tareas.FlatAppearance.BorderSize = 0;
-            this.Tareas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.Tareas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Tareas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tareas.ForeColor = System.Drawing.Color.White;
-            this.Tareas.Location = new System.Drawing.Point(12, 29);
-            this.Tareas.Name = "Tareas";
-            this.Tareas.Size = new System.Drawing.Size(208, 42);
-            this.Tareas.TabIndex = 0;
-            this.Tareas.Text = "Tareas";
-            this.Tareas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Tareas.UseVisualStyleBackColor = false;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel1.Location = new System.Drawing.Point(3, 29);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(10, 42);
-            this.panel1.TabIndex = 1;
-            // 
             // pictureBox3
             // 
             this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -191,15 +158,17 @@
             this.pictureBox3.TabIndex = 4;
             this.pictureBox3.TabStop = false;
             // 
-            // panel2
+            // pictureBox5
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1256, 621);
-            this.panel2.TabIndex = 7;
+            this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(19, 277);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(57, 42);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 12;
+            this.pictureBox5.TabStop = false;
             // 
             // pictureBox4
             // 
@@ -212,6 +181,39 @@
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 8;
             this.pictureBox4.TabStop = false;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.panel5.Location = new System.Drawing.Point(3, 277);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(10, 42);
+            this.panel5.TabIndex = 10;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(41)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(12, 277);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(208, 42);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "Chat Room";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.panel1.Location = new System.Drawing.Point(3, 29);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(10, 42);
+            this.panel1.TabIndex = 1;
             // 
             // panel3
             // 
@@ -236,52 +238,63 @@
             this.button1.Text = "Administrar ";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // Tareas
+            // 
+            this.Tareas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(41)))));
+            this.Tareas.FlatAppearance.BorderSize = 0;
+            this.Tareas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.Tareas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Tareas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tareas.ForeColor = System.Drawing.Color.White;
+            this.Tareas.Location = new System.Drawing.Point(12, 29);
+            this.Tareas.Name = "Tareas";
+            this.Tareas.Size = new System.Drawing.Size(208, 42);
+            this.Tareas.TabIndex = 0;
+            this.Tareas.Text = "Tareas";
+            this.Tareas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Tareas.UseVisualStyleBackColor = false;
+            // 
+            // panelControaldor
+            // 
+            this.panelControaldor.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelControaldor.Controls.Add(this.panel2);
+            this.panelControaldor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControaldor.Location = new System.Drawing.Point(220, 35);
+            this.panelControaldor.Name = "panelControaldor";
+            this.panelControaldor.Size = new System.Drawing.Size(1256, 621);
+            this.panelControaldor.TabIndex = 3;
+            this.panelControaldor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControaldor_Paint);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1256, 621);
+            this.panel2.TabIndex = 7;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel4.Controls.Add(this.panel6);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1256, 621);
             this.panel4.TabIndex = 11;
             // 
-            // pictureBox5
+            // panel6
             // 
-            this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(19, 278);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(57, 42);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 12;
-            this.pictureBox5.TabStop = false;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel5.Location = new System.Drawing.Point(3, 278);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(10, 42);
-            this.panel5.TabIndex = 10;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(41)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(12, 278);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(208, 42);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Chat Room";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.panel6.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1256, 621);
+            this.panel6.TabIndex = 18;
             // 
             // Form3
             // 
@@ -295,16 +308,17 @@
             this.Name = "Form3";
             this.Text = "Form3";
             this.BarraTitulo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.BtnRestaurar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.MenuVertical.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BtnRestaurar)).EndInit();
-            this.panelControaldor.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.panelControaldor.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -328,5 +342,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel6;
     }
 }
