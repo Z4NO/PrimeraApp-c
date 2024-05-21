@@ -35,6 +35,11 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.MenuVertical = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -54,6 +59,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.MenuVertical.SuspendLayout();
+            this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -130,6 +136,8 @@
             // MenuVertical
             // 
             this.MenuVertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.MenuVertical.Controls.Add(this.panel8);
+            this.MenuVertical.Controls.Add(this.panel7);
             this.MenuVertical.Controls.Add(this.pictureBox3);
             this.MenuVertical.Controls.Add(this.pictureBox5);
             this.MenuVertical.Controls.Add(this.pictureBox4);
@@ -145,6 +153,65 @@
             this.MenuVertical.Size = new System.Drawing.Size(220, 621);
             this.MenuVertical.TabIndex = 2;
             this.MenuVertical.Paint += new System.Windows.Forms.PaintEventHandler(this.MenuVertical_Paint);
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.panel8.Location = new System.Drawing.Point(17, 167);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(10, 42);
+            this.panel8.TabIndex = 7;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.button4);
+            this.panel7.Controls.Add(this.button3);
+            this.panel7.Controls.Add(this.panel9);
+            this.panel7.Location = new System.Drawing.Point(17, 153);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(200, 118);
+            this.panel7.TabIndex = 13;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(41)))));
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Location = new System.Drawing.Point(19, 76);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(177, 42);
+            this.button4.TabIndex = 16;
+            this.button4.Text = "Editar tareas";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(41)))));
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(20, 14);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(177, 42);
+            this.button3.TabIndex = 14;
+            this.button3.Text = "Crear Tarea";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.panel9.Location = new System.Drawing.Point(3, 76);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(10, 42);
+            this.panel9.TabIndex = 15;
             // 
             // pictureBox3
             // 
@@ -295,6 +362,7 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1256, 621);
             this.panel6.TabIndex = 18;
+            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
             // Form3
             // 
@@ -313,6 +381,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.MenuVertical.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -343,5 +412,10 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Panel panel9;
     }
 }

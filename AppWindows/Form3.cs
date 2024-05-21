@@ -24,6 +24,7 @@ namespace AppWindows
             InitializeComponent();
             this.Nombre = Nombre;
             
+            
 
         }
 
@@ -93,58 +94,32 @@ namespace AppWindows
 
         }
 
-        public class Tarea
+        private void button3_Click(object sender, EventArgs e)
         {
-            public String Nombre { get; set; }
-            public int Prioridad { get; set; }
-            public String Descripción { get; set; }
-            public Boolean Completada { get; set; }
-            public FileInfo archivo { get; set; }
-            public Tarea(String Nombre, int Prioridad, String Descripción)
-            {
-                this.Nombre = Nombre;
-                if( Prioridad < 1 || Prioridad > 5)
-                {
-                    throw new Exception("La prioridad debe ser un número entre 1 y 5");
-                }
-                else
-                {
-                    this.Prioridad = Prioridad;
-                }
-                this.Descripción = Descripción;
-                this.Completada = false;
+            //BOTOON PARA CREAR TAREA
 
-            }
+        }
 
-            //METODO LEER ARCHIVO (TAREA) (NO FUNCIONA) (DEBEMOS ADAPTARLO A UNA VENTANA)
-            public void LeerArchivo()
-            {
-                if (archivo.Exists)
-                {
-                    using (StreamReader sr = archivo.OpenText())
-                    {
-                        String s = "";
-                        while ((s = sr.ReadLine()) != null)
-                        {
-                            Console.WriteLine(s);
-                        }
-                    }
-                }
-            }
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
 
-            public void completarTarea()
-            {
-                this.Completada = true;
-            }
+        }
 
-            public void ObtenerArchivoDeLaBaseDeDatos()
-            {
-                //Obtener archivo de la base de datos
-                String consulta = "SELECT Archivo FROM Tareas WHERE Nombre = " + this.Nombre;
-
-            }
-        }   
+        private void OpenFormInPanel(object Formhijo)
+        {
+            if (this.panelControaldor.Controls.Count > 0)
+                this.panelControaldor.Controls.RemoveAt(0);
+            Form fh = Formhijo as Form;
+            fh.TopLevel = false;
+            fh.Dock = DockStyle.Fill;
+            this.panelControaldor.Controls.Add(fh);
+            this.panelControaldor.Tag = fh;
+            fh.Show();
+        }
 
        
+
+        
+        
     }
 }

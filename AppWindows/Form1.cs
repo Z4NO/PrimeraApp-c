@@ -75,6 +75,7 @@ namespace AppWindows
                             MessageBox.Show("Bienvenido " + textBox1.Text);
                             Form2 Ventana2 = new Form2(list);
                             Ventana2.ShowDialog();
+                            this.Hide();
                         }
                         else
                         {
@@ -92,6 +93,7 @@ namespace AppWindows
                                         MessageBox.Show("Bienvenido " + textBox1.Text);
                                         Form3 Ventana3 = new Form3(textBox1.Text);
                                         Ventana3.ShowDialog();
+                                        this.Hide();
                                     }
                                     else
                                     {

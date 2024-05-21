@@ -28,6 +28,7 @@ namespace AppWindows
             this.list = lista;
             CargarUsuarios();
             this.FormClosed += Form2_FormClosed;
+           
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
