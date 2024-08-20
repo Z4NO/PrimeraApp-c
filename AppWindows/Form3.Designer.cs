@@ -106,6 +106,7 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // pictureBox1
             // 
@@ -136,17 +137,13 @@
             // MenuVertical
             // 
             this.MenuVertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.MenuVertical.Controls.Add(this.panel8);
             this.MenuVertical.Controls.Add(this.panel7);
-            this.MenuVertical.Controls.Add(this.pictureBox3);
             this.MenuVertical.Controls.Add(this.pictureBox5);
             this.MenuVertical.Controls.Add(this.pictureBox4);
             this.MenuVertical.Controls.Add(this.panel5);
             this.MenuVertical.Controls.Add(this.button2);
-            this.MenuVertical.Controls.Add(this.panel1);
             this.MenuVertical.Controls.Add(this.panel3);
             this.MenuVertical.Controls.Add(this.button1);
-            this.MenuVertical.Controls.Add(this.Tareas);
             this.MenuVertical.Dock = System.Windows.Forms.DockStyle.Left;
             this.MenuVertical.Location = new System.Drawing.Point(0, 35);
             this.MenuVertical.Name = "MenuVertical";
@@ -157,20 +154,26 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel8.Location = new System.Drawing.Point(17, 167);
+            this.panel8.Location = new System.Drawing.Point(4, 14);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(10, 42);
             this.panel8.TabIndex = 7;
+            this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
             // 
             // panel7
             // 
+            this.panel7.Controls.Add(this.panel8);
+            this.panel7.Controls.Add(this.pictureBox3);
             this.panel7.Controls.Add(this.button4);
             this.panel7.Controls.Add(this.button3);
             this.panel7.Controls.Add(this.panel9);
-            this.panel7.Location = new System.Drawing.Point(17, 153);
+            this.panel7.Controls.Add(this.panel1);
+            this.panel7.Controls.Add(this.Tareas);
+            this.panel7.Location = new System.Drawing.Point(17, 140);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(200, 118);
+            this.panel7.Size = new System.Drawing.Size(200, 193);
             this.panel7.TabIndex = 13;
+            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
             // 
             // button4
             // 
@@ -218,9 +221,9 @@
             this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(19, 29);
+            this.pictureBox3.Location = new System.Drawing.Point(20, 134);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(57, 42);
+            this.pictureBox3.Size = new System.Drawing.Size(29, 42);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 4;
             this.pictureBox3.TabStop = false;
@@ -230,7 +233,7 @@
             this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(19, 277);
+            this.pictureBox5.Location = new System.Drawing.Point(19, 17);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(57, 42);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -242,7 +245,7 @@
             this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(19, 105);
+            this.pictureBox4.Location = new System.Drawing.Point(19, 92);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(57, 42);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -252,7 +255,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel5.Location = new System.Drawing.Point(3, 277);
+            this.panel5.Location = new System.Drawing.Point(3, 17);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(10, 42);
             this.panel5.TabIndex = 10;
@@ -265,7 +268,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(12, 277);
+            this.button2.Location = new System.Drawing.Point(12, 17);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(208, 42);
             this.button2.TabIndex = 9;
@@ -277,7 +280,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel1.Location = new System.Drawing.Point(3, 29);
+            this.panel1.Location = new System.Drawing.Point(4, 134);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(10, 42);
             this.panel1.TabIndex = 1;
@@ -285,7 +288,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel3.Location = new System.Drawing.Point(3, 105);
+            this.panel3.Location = new System.Drawing.Point(3, 92);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(10, 42);
             this.panel3.TabIndex = 6;
@@ -298,7 +301,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(12, 105);
+            this.button1.Location = new System.Drawing.Point(12, 92);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(208, 42);
             this.button1.TabIndex = 5;
@@ -313,15 +316,16 @@
             this.Tareas.FlatAppearance.BorderSize = 0;
             this.Tareas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.Tareas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Tareas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tareas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tareas.ForeColor = System.Drawing.Color.White;
-            this.Tareas.Location = new System.Drawing.Point(12, 29);
+            this.Tareas.Location = new System.Drawing.Point(13, 134);
             this.Tareas.Name = "Tareas";
-            this.Tareas.Size = new System.Drawing.Size(208, 42);
+            this.Tareas.Size = new System.Drawing.Size(183, 42);
             this.Tareas.TabIndex = 0;
-            this.Tareas.Text = "Tareas";
+            this.Tareas.Text = "Entregar Tareas";
             this.Tareas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Tareas.UseVisualStyleBackColor = false;
+            this.Tareas.Click += new System.EventHandler(this.Tareas_Click);
             // 
             // panelControaldor
             // 

@@ -22,72 +22,90 @@ namespace AppWindows
         private List<Alumno> list = new List<Alumno>();
         private static String conexion = "server=localhost;port=3306;uid=root;pwd='';database=users;";
         private MySqlConnection conexionConnection = new MySqlConnection(conexion);
+        
         public Form2(List<Alumno> lista)
         {
             InitializeComponent();
             this.list = lista;
             CargarUsuarios();
             this.FormClosed += Form2_FormClosed;
+      
            
         }
 
+        
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var row = dataGridView1.Rows[e.RowIndex];
-            var id = row.Cells["ID"].Value.ToString();
-
-            
-
-            //CONSULTA SQL UPDATE DE RESGISTRADO
-            try
+            if (e.ColumnIndex == 1 )
             {
-                
+                 var row_t = dataGridView1.Rows[e.RowIndex];
+                 var id_t = row_t.Cells["ID"].Value.ToString();
 
-                // Crear la consulta SQL con parámetros
-                string Insert = "UPDATE users SET Registrado = true WHERE ID = @id";
-                MySqlCommand cmd = new MySqlCommand(Insert, conexionConnection);
-                if (row.Cells["Registrado"].Value.ToString() == "True")
+                // ABRIREMOS UNA LA VENTANA CREADOR PARA CREAR UNA TAREA
+                Creador creador = new Creador(id_t);
+                creador.Show();
+            }
+            else
+            {
+                var row = dataGridView1.Rows[e.RowIndex];
+                var id = row.Cells["ID"].Value.ToString();
+
+
+
+                //CONSULTA SQL UPDATE DE RESGISTRADO
+                try
                 {
-                    MessageBox.Show("El alumno ya se encuentra registrado");
-                    return;
-                }
-                else
-                {
-                    string EMIAL = Interaction.InputBox("Ingrese el email del alumno con ID = " + id, "Email", "", -1, -1);
-                    if (EMIAL == null || EMIAL == "")
+
+
+                    // Crear la consulta SQL con parámetros
+                    string Insert = "UPDATE users SET Registrado = true WHERE ID = @id";
+                    MySqlCommand cmd = new MySqlCommand(Insert, conexionConnection);
+                    if (row.Cells["Registrado"].Value.ToString() == "True")
                     {
-                        MessageBox.Show("No se ha ingresado un email");
+                        MessageBox.Show("El alumno ya se encuentra registrado");
                         return;
                     }
                     else
                     {
-                        //Para actualizar el email
-                        conexionConnection.Open();
-                        string InsertEmail = "UPDATE users SET Email = @Email WHERE ID = @id";
-                        MySqlCommand cmdEmail = new MySqlCommand(InsertEmail, conexionConnection);
-                        cmdEmail.Parameters.AddWithValue("@Email", EMIAL);
-                        cmdEmail.Parameters.AddWithValue("@id", id);    
-                        cmdEmail.ExecuteNonQuery();
-                        row.Cells["Email"].Value = EMIAL;
-                        conexionConnection.Close();
-                        //Actualizar el email en el usuario
-                        list.Find(x => x.Id == Convert.ToInt32(id)).SetEmail = EMIAL;
-                        //Actualizar el estado de registrado
-                        conexionConnection.Open();
-                        cmd.Parameters.AddWithValue("@id", id);
-                        cmd.ExecuteNonQuery();
-                        conexionConnection.Close();
+                        string EMIAL = Interaction.InputBox("Ingrese el email del alumno con ID = " + id, "Email", "", -1, -1);
+                        if (EMIAL == null || EMIAL == "")
+                        {
+                            MessageBox.Show("No se ha ingresado un email");
+                            return;
+                        }
+                        else
+                        {
+                            //Para actualizar el email
+                            conexionConnection.Open();
+                            string InsertEmail = "UPDATE users SET Email = @Email WHERE ID = @id";
+                            MySqlCommand cmdEmail = new MySqlCommand(InsertEmail, conexionConnection);
+                            cmdEmail.Parameters.AddWithValue("@Email", EMIAL);
+                            cmdEmail.Parameters.AddWithValue("@id", id);
+                            cmdEmail.ExecuteNonQuery();
+                            row.Cells["Email"].Value = EMIAL;
+                            conexionConnection.Close();
+                            //Actualizar el email en el usuario
+                            list.Find(x => x.Id == Convert.ToInt32(id)).SetEmail = EMIAL;
+                            //Actualizar el estado de registrado
+                            conexionConnection.Open();
+                            cmd.Parameters.AddWithValue("@id", id);
+                            cmd.ExecuteNonQuery();
+                            conexionConnection.Close();
 
-                        row.Cells["Registrado"].Value = true;
-                        row.Cells["Registrado"].Style.BackColor = Color.Green;
+                            row.Cells["Registrado"].Value = true;
+                            row.Cells["Registrado"].Style.BackColor = Color.Green;
 
-                        MessageBox.Show("Se ha registrado el alumno con ID = " + id);
-                    }  
+                            MessageBox.Show("Se ha registrado el alumno con ID = " + id);
+                        }
+                    }
                 }
-            }catch(Exception ex)
-            {
-                MessageBox.Show("No se pudo realizar la siguiente operacion por el siguiente motivo =  " + ex.Message);
+                catch (Exception ex)
+                {
+                    MessageBox.Show("No se pudo realizar la siguiente operacion por el siguiente motivo =  " + ex.Message);
+                }
             }
+            
 
         }
 
@@ -141,25 +159,25 @@ namespace AppWindows
                         int n = dataGridView1.Rows.Add();
 
                         dataGridView1.Rows[n].Cells[0].Value = alum.Name;
-                        dataGridView1.Rows[n].Cells[1].Value = alum.Apelliddo;
-                        dataGridView1.Rows[n].Cells[2].Value = alum.Id;
-                        dataGridView1.Rows[n].Cells[3].Value = alum.Registrado;
-                        if (dataGridView1.Rows[n].Cells[3].Value.ToString() == "True")
+                        dataGridView1.Rows[n].Cells[2].Value = alum.Apelliddo;
+                        dataGridView1.Rows[n].Cells[3].Value = alum.Id;
+                        dataGridView1.Rows[n].Cells[4].Value = alum.Registrado;
+                        if (dataGridView1.Rows[n].Cells[4].Value.ToString() == "True")
                         {
-                            dataGridView1.Rows[n].Cells[3].Style.BackColor = Color.Green;
+                            dataGridView1.Rows[n].Cells[4].Style.BackColor = Color.Green;
                         }
                         else
                         {
-                            dataGridView1.Rows[n].Cells[3].Style.BackColor = Color.Red;
+                            dataGridView1.Rows[n].Cells[4].Style.BackColor = Color.Red;
                         }
-                        dataGridView1.Rows[n].Cells[4].Value = alum.email;
-                        if(dataGridView1.Rows[n].Cells[4].Value.ToString() == "")
+                        dataGridView1.Rows[n].Cells[5].Value = alum.email;
+                        if(dataGridView1.Rows[n].Cells[5].Value.ToString() == "")
                         {
-                            dataGridView1.Rows[n].Cells[4].Value = "No tiene email";
+                            dataGridView1.Rows[n].Cells[5].Value = "No tiene email";
                         }
                         else
                         {
-                            dataGridView1.Rows[n].Cells[4].Value = alum.email;
+                            dataGridView1.Rows[n].Cells[5].Value = alum.email;
                         }
                         
                     }

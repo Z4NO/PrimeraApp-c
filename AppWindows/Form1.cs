@@ -91,7 +91,7 @@ namespace AppWindows
                                     if (readerUser.Read() && Convert.ToBoolean(readerUser["Registrado"]) && textBox2.Text.Equals("user"))
                                     {
                                         MessageBox.Show("Bienvenido " + textBox1.Text);
-                                        Form3 Ventana3 = new Form3(textBox1.Text);
+                                        Form3 Ventana3 = new Form3(textBox1.Text, Convert.ToString(readerUser["ID"]));
                                         Ventana3.ShowDialog();
                                         this.Hide();
                                     }

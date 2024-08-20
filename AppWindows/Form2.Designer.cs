@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TAREAS = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Apellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.REGISTRADO = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -53,6 +55,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nombre,
+            this.TAREAS,
             this.Apellidos,
             this.ID,
             this.REGISTRADO,
@@ -60,7 +63,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 116);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(652, 370);
+            this.dataGridView1.Size = new System.Drawing.Size(752, 370);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -71,6 +74,16 @@
             this.Nombre.Name = "Nombre";
             this.Nombre.ReadOnly = true;
             this.Nombre.Width = 125;
+            // 
+            // TAREAS
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TAREAS.DefaultCellStyle = dataGridViewCellStyle1;
+            this.TAREAS.HeaderText = "TAREAS";
+            this.TAREAS.Name = "TAREAS";
+            this.TAREAS.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.TAREAS.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // Apellidos
             // 
@@ -164,7 +177,7 @@
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Location = new System.Drawing.Point(578, 20);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(652, 488);
+            this.panel1.Size = new System.Drawing.Size(753, 488);
             this.panel1.TabIndex = 6;
             // 
             // button2
@@ -248,15 +261,16 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Apellidos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewButtonColumn REGISTRADO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewButtonColumn TAREAS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Apellidos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewButtonColumn REGISTRADO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
     }
 }
