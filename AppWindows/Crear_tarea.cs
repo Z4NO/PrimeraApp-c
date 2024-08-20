@@ -93,6 +93,8 @@ namespace AppWindows
             {
                 MessageBox.Show("Tarea no entregada", "Entrega", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+
+            this.Close();
         }
 
 
