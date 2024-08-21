@@ -13,7 +13,6 @@ namespace ChatIntegrado
         }
 
         public async Task SendMessage(string message) //ENVIAR MENSAJE
-        
         {
             await Clients.Others.SendAsync("AwaitMessage", message);
         }

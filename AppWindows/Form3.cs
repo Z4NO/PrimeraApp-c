@@ -27,7 +27,7 @@ namespace AppWindows
         private static String conexion = "server=localhost;port=3306;uid=root;pwd='';database=users;convert zero datetime=True";
         private MySqlConnection conexionConnection = new MySqlConnection(conexion);
 
-        private HubConnection hubConnection;
+        private HubConnection conecction;
 
 
 
@@ -105,33 +105,36 @@ namespace AppWindows
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
         private static extern IntPtr SendMessage(System.IntPtr hWnd, int wMsg,int WParam, int Pram);
 
-        private  async void button2_Click(object sender, EventArgs e)
+        private async void button2_Click(object sender, EventArgs e)
         {
-
-            string hubUrl = "https://localhost:7194;http://localhost:5030";
-            hubConnection = new HubConnectionBuilder()
-                .WithUrl(hubUrl)
+            // Crear la conexión a SignalR
+            var connection = new HubConnectionBuilder()
+                .WithUrl("https://localhost:7065/PruebaHub")
                 .Build();
 
-            if (hubConnection.State == HubConnectionState.Disconnected)
-            {
-                try
-                {
-                    await hubConnection.StartAsync();  
-                    MessageBox.Show("Conexión establecida con el servidor SignalR.");
-                    
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al conectar con el servidor SignalR: " + ex.Message);
-                }
-            }
-            else
-            {
-                MessageBox.Show("La conexión ya está establecida.");
-            }
+            // Iniciar la conexión
+            await connection.StartAsync();
 
+            // Mensaje a la consola cuando la conexión es exitosa 
+            Console.WriteLine("Conectado al servidor");
+
+            // Configurar el manejador para recibir mensajes
+            connection.On<string>("AwaitMessage", (message) =>
+            {
+                Console.WriteLine("Mensaje recibido: " + message);
+            });
+
+            // Enviar mensajes desde la consola
+            while (true)
+            {
+                var message = Console.ReadLine();
+                if (!string.IsNullOrWhiteSpace(message))
+                {
+                    await connection.SendAsync("SendMessage", message);
+                }
+            }
         }
+
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
