@@ -13,6 +13,7 @@ using Microsoft.VisualBasic;
 using System.IO;
 using MySql.Data.MySqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Microsoft.AspNetCore.SignalR.Client;
 
 
 
@@ -25,7 +26,10 @@ namespace AppWindows
         static String path = "";
         private static String conexion = "server=localhost;port=3306;uid=root;pwd='';database=users;convert zero datetime=True";
         private MySqlConnection conexionConnection = new MySqlConnection(conexion);
-        
+
+        private HubConnection hubConnection;
+
+
 
         String Nombre;
         String id;
@@ -101,10 +105,32 @@ namespace AppWindows
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
         private static extern IntPtr SendMessage(System.IntPtr hWnd, int wMsg,int WParam, int Pram);
 
-        private void button2_Click(object sender, EventArgs e)
+        private  async void button2_Click(object sender, EventArgs e)
         {
-            
-            
+
+            string hubUrl = "https://localhost:7194;http://localhost:5030";
+            hubConnection = new HubConnectionBuilder()
+                .WithUrl(hubUrl)
+                .Build();
+
+            if (hubConnection.State == HubConnectionState.Disconnected)
+            {
+                try
+                {
+                    await hubConnection.StartAsync();  
+                    MessageBox.Show("Conexión establecida con el servidor SignalR.");
+                    
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al conectar con el servidor SignalR: " + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("La conexión ya está establecida.");
+            }
+
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
