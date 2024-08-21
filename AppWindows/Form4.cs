@@ -46,20 +46,30 @@ namespace AppWindows
                             String Nombre = reader["Nombre"].ToString();
                             Boolean Completada = Convert.ToBoolean(reader["Completado"]);
                             String Archivo = reader["Archivo"].ToString().ToLower();
+                            String fecha = Convert.ToDateTime(reader["fecha"]).ToString("dd/MM/yyyy");
 
                             int n = dataGridView1.Rows.Add();
 
                             dataGridView1.Rows[n].Cells[0].Value = Nombre;
-                            dataGridView1.Rows[n].Cells[1].Value = Completada;
-                            if (dataGridView1.Rows[n].Cells[1].Value.ToString() == "True")
-                            {
-                                dataGridView1.Rows[n].Cells[1].Style.BackColor = Color.Green;
-                            }
-                            else
+                            dataGridView1.Rows[n].Cells[1].Value = fecha;
+                            if(DateTime.Now > Convert.ToDateTime(fecha))
                             {
                                 dataGridView1.Rows[n].Cells[1].Style.BackColor = Color.Red;
                             }
-                            dataGridView1.Rows[n].Cells[2].Value = Archivo;
+                            else
+                            {
+                                dataGridView1.Rows[n].Cells[1].Style.BackColor = Color.Green;
+                            }
+                            dataGridView1.Rows[n].Cells[2].Value = Completada;
+                            if (dataGridView1.Rows[n].Cells[2].Value.ToString() == "True")
+                            {
+                                dataGridView1.Rows[n].Cells[2].Style.BackColor = Color.Green;
+                            }
+                            else
+                            {
+                                dataGridView1.Rows[n].Cells[2].Style.BackColor = Color.Red;
+                            }
+                            dataGridView1.Rows[n].Cells[3].Value = Archivo;
 
                         }
                     }

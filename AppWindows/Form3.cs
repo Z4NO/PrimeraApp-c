@@ -23,7 +23,7 @@ namespace AppWindows
 
 
         static String path = "";
-        private static String conexion = "server=localhost;port=3306;uid=root;pwd='';database=users;";
+        private static String conexion = "server=localhost;port=3306;uid=root;pwd='';database=users;convert zero datetime=True";
         private MySqlConnection conexionConnection = new MySqlConnection(conexion);
         
 
@@ -134,10 +134,7 @@ namespace AppWindows
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //BOTOON PARA CREAR TAREA
-
-            //Entrgar form3 = new (id);
-            //OpenFormInPanel(Form3);
+            
 
         }
 

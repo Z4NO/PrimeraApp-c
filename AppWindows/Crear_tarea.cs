@@ -16,7 +16,7 @@ namespace AppWindows
     {
 
         static String path = "";
-        private static String conexion = "server=localhost;port=3306;uid=root;pwd='';database=users;";
+        private static String conexion = "server=localhost;port=3306;uid=root;pwd='';database=users;convert zero datetime=True";
         private MySqlConnection conexionConnection = new MySqlConnection(conexion);
         String id;
 
@@ -57,36 +57,64 @@ namespace AppWindows
             if (res == DialogResult.Yes)
             {
                 String consulta = "UPDATE tareas SET Completado=True, Archivo=@path WHERE Nombre=@Nombre AND FK_ID=@ID";
+                String comprobar_fecha = "SELECT fecha FROM tareas WHERE  FK_ID=@ID";
 
                 // Usar using para asegurar que la conexión se cierre adecuadamente
                 using (MySqlConnection conexionConnection = new MySqlConnection(conexion))
                 {
-                    try
+                    conexionConnection.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(comprobar_fecha, conexionConnection))
                     {
-                        conexionConnection.Open();
-                        using (MySqlCommand cmdUser = new MySqlCommand(consulta, conexionConnection))
+                        cmd.Parameters.AddWithValue("@ID", id);
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
-                            cmdUser.Parameters.AddWithValue("@Nombre", textBox1.Text);
-                            cmdUser.Parameters.AddWithValue("@path", textBox2.Text);
-                            cmdUser.Parameters.AddWithValue("@ID", id);
-
-                            // Ejecutar el comando
-                            int rowsAffected = cmdUser.ExecuteNonQuery();
-
-                            if (rowsAffected > 0)
+                            if (reader.FieldCount > 0)
                             {
-                                MessageBox.Show("Tarea entregada con éxito", "Entrega", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                while (reader.Read())
+                                {
+                                    String fecha = Convert.ToDateTime(reader["fecha"]).ToString("dd/MM/yyyy");
+                                    if (DateTime.Now > Convert.ToDateTime(fecha))
+                                    {
+                                        MessageBox.Show("La fecha de entrega ha pasado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        return;
+                                    }
+                                }
+                                conexionConnection.Close();
                             }
                             else
                             {
-                                MessageBox.Show("No se encontró la tarea a entregar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                conexionConnection.Close();
+                                try
+                                {
+                                    conexionConnection.Open();
+                                    using (MySqlCommand cmdUser = new MySqlCommand(consulta, conexionConnection))
+                                    {
+                                        cmdUser.Parameters.AddWithValue("@Nombre", textBox1.Text);
+                                        cmdUser.Parameters.AddWithValue("@path", textBox2.Text);
+                                        cmdUser.Parameters.AddWithValue("@ID", id);
+
+                                        // Ejecutar el comando
+                                        int rowsAffected = cmdUser.ExecuteNonQuery();
+
+                                        if (rowsAffected > 0)
+                                        {
+                                            MessageBox.Show("Tarea entregada con éxito", "Entrega", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("No se encontró la tarea a entregar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        }
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("Ocurrió un error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
                             }
                         }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Ocurrió un error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    
+                    
                 }
             }
             else

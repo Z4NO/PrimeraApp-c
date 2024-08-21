@@ -53,7 +53,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(415, 191);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(369, 32);
+            this.button1.Size = new System.Drawing.Size(369, 33);
             this.button1.TabIndex = 10;
             this.button1.Text = "Fecha de Entrega";
             this.button1.UseVisualStyleBackColor = false;
@@ -80,7 +80,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(801, 191);
+            this.dateTimePicker1.Location = new System.Drawing.Point(801, 198);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(313, 20);
             this.dateTimePicker1.TabIndex = 13;
