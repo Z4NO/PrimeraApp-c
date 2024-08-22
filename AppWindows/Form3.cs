@@ -50,28 +50,7 @@ namespace AppWindows
             }
         }
 
-        private async void ConectarSignalR()
-        {
-
-            // Crear la conexión a SignalR
-            var connection = new HubConnectionBuilder()
-                .WithUrl("https://localhost:7065/PruebaHub")
-                .Build();
-
-            // Iniciar la conexión
-            await connection.StartAsync();
-
-            // Mensaje a la consola cuando la conexión es exitosa 
-            MessageBox.Show("Conexión exitosa");
-
-            // Configurar el manejador para recibir mensajes
-            connection.On<string>("AwaitMessage", (message) =>
-            {
-                MessageBox.Show("Mensaje recibido: " + message);
-            });
-
-            
-        }
+        
 
         public Form3(String Nombre, String id )
         {
@@ -130,7 +109,8 @@ namespace AppWindows
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ConectarSignalR();
+            GUIchat chat = new GUIchat(Nombre);
+            OpenFormInPanel(chat);
         }
 
 
@@ -185,10 +165,16 @@ namespace AppWindows
 
         }
 
+
+        
+
+
         private void FormHijo_FormClosing(object sender, FormClosingEventArgs e)
         {
             OpenFormInPanel(tareas_cargadas);
         }
+        
+        
 
         private void Tareas_Click(object sender, EventArgs e)
         {

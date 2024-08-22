@@ -35,24 +35,25 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.MenuVertical = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.Tareas = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.Tareas = new System.Windows.Forms.Button();
             this.panelControaldor = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.BarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BtnRestaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -151,15 +152,6 @@
             this.MenuVertical.TabIndex = 2;
             this.MenuVertical.Paint += new System.Windows.Forms.PaintEventHandler(this.MenuVertical_Paint);
             // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel8.Location = new System.Drawing.Point(4, 14);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(10, 42);
-            this.panel8.TabIndex = 7;
-            this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
-            // 
             // panel7
             // 
             this.panel7.Controls.Add(this.panel8);
@@ -174,6 +166,27 @@
             this.panel7.Size = new System.Drawing.Size(200, 193);
             this.panel7.TabIndex = 13;
             this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.panel8.Location = new System.Drawing.Point(4, 14);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(10, 42);
+            this.panel8.TabIndex = 7;
+            this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(20, 134);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(29, 42);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 4;
+            this.pictureBox3.TabStop = false;
             // 
             // button4
             // 
@@ -216,17 +229,30 @@
             this.panel9.Size = new System.Drawing.Size(10, 42);
             this.panel9.TabIndex = 15;
             // 
-            // pictureBox3
+            // panel1
             // 
-            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(20, 134);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(29, 42);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 4;
-            this.pictureBox3.TabStop = false;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.panel1.Location = new System.Drawing.Point(4, 134);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(10, 42);
+            this.panel1.TabIndex = 1;
+            // 
+            // Tareas
+            // 
+            this.Tareas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(41)))));
+            this.Tareas.FlatAppearance.BorderSize = 0;
+            this.Tareas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.Tareas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Tareas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tareas.ForeColor = System.Drawing.Color.White;
+            this.Tareas.Location = new System.Drawing.Point(13, 134);
+            this.Tareas.Name = "Tareas";
+            this.Tareas.Size = new System.Drawing.Size(183, 42);
+            this.Tareas.TabIndex = 0;
+            this.Tareas.Text = "Entregar Tareas";
+            this.Tareas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Tareas.UseVisualStyleBackColor = false;
+            this.Tareas.Click += new System.EventHandler(this.Tareas_Click);
             // 
             // pictureBox5
             // 
@@ -277,14 +303,6 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel1.Location = new System.Drawing.Point(4, 134);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(10, 42);
-            this.panel1.TabIndex = 1;
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
@@ -309,23 +327,6 @@
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // Tareas
-            // 
-            this.Tareas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(41)))));
-            this.Tareas.FlatAppearance.BorderSize = 0;
-            this.Tareas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.Tareas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Tareas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tareas.ForeColor = System.Drawing.Color.White;
-            this.Tareas.Location = new System.Drawing.Point(13, 134);
-            this.Tareas.Name = "Tareas";
-            this.Tareas.Size = new System.Drawing.Size(183, 42);
-            this.Tareas.TabIndex = 0;
-            this.Tareas.Text = "Entregar Tareas";
-            this.Tareas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Tareas.UseVisualStyleBackColor = false;
-            this.Tareas.Click += new System.EventHandler(this.Tareas_Click);
             // 
             // panelControaldor
             // 
@@ -421,5 +422,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panel9;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
