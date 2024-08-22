@@ -50,6 +50,29 @@ namespace AppWindows
             }
         }
 
+        private async void ConectarSignalR()
+        {
+
+            // Crear la conexión a SignalR
+            var connection = new HubConnectionBuilder()
+                .WithUrl("https://localhost:7065/PruebaHub")
+                .Build();
+
+            // Iniciar la conexión
+            await connection.StartAsync();
+
+            // Mensaje a la consola cuando la conexión es exitosa 
+            MessageBox.Show("Conexión exitosa");
+
+            // Configurar el manejador para recibir mensajes
+            connection.On<string>("AwaitMessage", (message) =>
+            {
+                MessageBox.Show("Mensaje recibido: " + message);
+            });
+
+            
+        }
+
         public Form3(String Nombre, String id )
         {
             InitializeComponent();
@@ -105,34 +128,9 @@ namespace AppWindows
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
         private static extern IntPtr SendMessage(System.IntPtr hWnd, int wMsg,int WParam, int Pram);
 
-        private async void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            // Crear la conexión a SignalR
-            var connection = new HubConnectionBuilder()
-                .WithUrl("https://localhost:7065/PruebaHub")
-                .Build();
-
-            // Iniciar la conexión
-            await connection.StartAsync();
-
-            // Mensaje a la consola cuando la conexión es exitosa 
-            Console.WriteLine("Conectado al servidor");
-
-            // Configurar el manejador para recibir mensajes
-            connection.On<string>("AwaitMessage", (message) =>
-            {
-                Console.WriteLine("Mensaje recibido: " + message);
-            });
-
-            // Enviar mensajes desde la consola
-            while (true)
-            {
-                var message = Console.ReadLine();
-                if (!string.IsNullOrWhiteSpace(message))
-                {
-                    await connection.SendAsync("SendMessage", message);
-                }
-            }
+            ConectarSignalR();
         }
 
 
