@@ -30,7 +30,7 @@ namespace AppWindows
 
 
 
-        private void Cargar_tareas()
+        public void Cargar_tareas()
         {
             conexionConnection.Open();
             string selectAdminQuery = "SELECT * FROM tareas WHERE FK_ID = @id";
@@ -41,6 +41,8 @@ namespace AppWindows
                 {
                     if (reader.FieldCount > 0)
                     {
+                        //limpiamos el datagridview
+                        Limpiar();
                         while(reader.Read())
                         {
                             String Nombre = reader["Nombre"].ToString();

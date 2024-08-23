@@ -17,6 +17,7 @@ using Microsoft.AspNetCore.SignalR.Client;
 
 
 
+
 namespace AppWindows
 {
     public partial class Form3 : Form
@@ -172,6 +173,7 @@ namespace AppWindows
         private void FormHijo_FormClosing(object sender, FormClosingEventArgs e)
         {
             OpenFormInPanel(tareas_cargadas);
+            this.tareas_cargadas.Cargar_tareas();
         }
         
         
@@ -181,6 +183,9 @@ namespace AppWindows
             //BOTON PARA ENTREGAR UNA TAREA
             Crear_tarea entregar = new Crear_tarea(this.id);
             OpenFormInPanel(entregar);
+            
+            
+            
         }
         
 

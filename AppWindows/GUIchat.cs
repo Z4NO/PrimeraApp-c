@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,7 +18,7 @@ namespace AppWindows
         private String Nombre;
         private HubConnection con;
 
-        public async void ConectarSignalR()
+        public async void ConectarDesconectarSignalR()
         {
 
             // Crear la conexión a SignalR
@@ -26,14 +27,24 @@ namespace AppWindows
                 .Build();
 
             con = connection;
-            // Iniciar la conexión
-            await con.StartAsync();
+            //Comprobamos si la conexión está activa
+            if (con.State == HubConnectionState.Connected)
+            {
+                // Desconectar
+                await con.StopAsync();
+            }
+            else
+            {
+                // Conectar
+                await con.StartAsync();
+            }
 
             // Configurar el manejador para recibir mensajes
             con.On<string>("AwaitMessage", (message) =>
             {
                 MessageBox.Show("Mensaje recibido: " + message);
             });
+            
 
 
         }
@@ -41,14 +52,15 @@ namespace AppWindows
         {
             this.Nombre = nombre;
             InitializeComponent();
-            ConectarSignalR();
+            ConectarDesconectarSignalR();
 
         }
 
-        private void Window_Closed(object sender, EventArgs e)
+
+        private void GUIchat_Closed(object sender, EventArgs e)
         {
             // Cerrar la conexión
-            con.StopAsync();
+            ConectarDesconectarSignalR();
         }
 
         private void GUIchat_Load(object sender, EventArgs e)
