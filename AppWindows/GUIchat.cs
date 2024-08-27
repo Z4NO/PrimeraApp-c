@@ -42,7 +42,7 @@ namespace AppWindows
             // Configurar el manejador para recibir mensajes
             con.On<string>("AwaitMessage", (message) =>
             {
-                MessageBox.Show("Mensaje recibido: " + message);
+                RecibirMensaje(message);
             });
             
 
@@ -66,6 +66,48 @@ namespace AppWindows
         private void GUIchat_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            textBox1.Multiline = true;
+            textBox1.ReadOnly = true;
+            textBox1.Font = new Font("Arial", 20, FontStyle.Regular);
+            Dock = DockStyle.Fill;
+        }
+        private void RecibirMensaje(string mensaje)
+        {
+            if(textBox1.InvokeRequired)
+            {
+                textBox1.Invoke(new Action(() => RecibirMensaje(mensaje)));
+            }
+            else
+            {
+                textBox1.AppendText(Nombre+": " + mensaje + Environment.NewLine);
+            }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+        private async Task EnviarMensaje(string mensaje)
+        {
+            if (con != null && con.State == HubConnectionState.Connected)
+            {
+                await con.SendAsync("SendMessage", mensaje);
+            }
+        }
+
+        private  async void button2_Click(object sender, EventArgs e)
+        {
+            await EnviarMensaje(textBox2.Text);
+            textBox2.Clear();
         }
     }
 }
