@@ -419,9 +419,119 @@ namespace AppWindows
             }
         }
 
-       
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //PREVIEW DE LA IMAGEND DE PORTADA
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //BOTON PARA CARGAR LA IMAGEN DE PORTADA DE LA APLICACION
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //METODO PARA CARGAR LA IMAGEN DE PORTADA EN LA BASE DE DATOS
+        private void CargarImagenDePerfil()
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = "c:\\";
+                openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png";
+                openFileDialog.FilterIndex = 1;
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        string filePath = openFileDialog.FileName;
+                        byte[] imageBytes = System.IO.File.ReadAllBytes(filePath);
+
+                        using (MySqlConnection conexionConnection = new MySqlConnection(conexion))
+                        {
+                            conexionConnection.Open();
+                            string consulta = "UPDATE users SET ImagenPerfil = @Imagen WHERE ID = @ID";
+
+                            using (MySqlCommand cmd = new MySqlCommand(consulta, conexionConnection))
+                            {
+                                cmd.Parameters.AddWithValue("@Imagen", imageBytes);
+                                cmd.Parameters.AddWithValue("@ID", id);
+
+                                int rowsAffected = cmd.ExecuteNonQuery();
+
+                                if (rowsAffected > 0)
+                                {
+                                    MessageBox.Show("Imagen de perfil cargada con éxito.", "Imagen de Perfil", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    BuscarImagenDePerfil();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("No se encontró el usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ocurrió un error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        //METODO PARA BUSCAR LA  IMAGEN DE PORTADA UNA VEZ CARGADA EN LA BASE DE DATOS
+        private void BuscarImagenDePerfil()
+        {
+            String consulta = "SELECT Imagen FROM users WHERE ID=@ID";
+
+            using (MySqlConnection conexionConnection = new MySqlConnection(conexion))
+            {
+                try
+                {
+                    conexionConnection.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(consulta, conexionConnection))
+                    {
+                        cmd.Parameters.AddWithValue("@ID", id);
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                byte[] imageBytes = (byte[])reader["ImagenPerfil"];
+                                if (imageBytes != null && imageBytes.Length > 0)
+                                {
+                                    using (var ms = new System.IO.MemoryStream(imageBytes))
+                                    {
+                                        pictureBox1.Image = Image.FromStream(ms);
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("No se encontró una imagen de perfil para este usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("No se encontró el usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ocurrió un error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
     }
 }
+
+
 public class Alumno
 {
     private String _name { get; set; }
