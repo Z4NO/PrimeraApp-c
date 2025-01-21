@@ -1,54 +1,52 @@
-<h1 align="center"> CLASRROM BY DANI </h1>
+# Classroom by Dani
 
-<image aling="center">![clasrrom by dani](https://github.com/user-attachments/assets/0973a388-68bd-4849-b7e6-d2c8f7480fbc)</image>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/0973a388-68bd-4849-b7e6-d2c8f7480fbc" alt="Classroom by Dani">
+</p>
 
 <h4 align="center">
 🚧 Proyecto en construcción 🚧
 </h4>
 
+## 📁 Propósito del proyecto
 
-\## 📁  Propósito del proyecto
+Este proyecto se está desarrollando con el objetivo de trabajar con la tecnología de C# y .NET, además de implementar un sistema tipo "classroom" que integre un chat para que los alumnos puedan compartir la información enseñada en el centro educativo.
 
-**Este proyecto se está realizando con el objetivo de trabajar con la tecnología de c# además de asignalar y .net, para así realizar lo que sería una especie de classrom el cual integre un chat para que los alumnos de este mismo puedan compartir la informacion enseña en el centro
-educativo**
+## 🔨 Funcionalidades del proyecto
 
+### 📂 Login
+- La aplicación incluye un sistema de inicio de sesión compartido por profesores y alumnos.
+- Una vez logueados, profesores y alumnos tendrán pantallas con funcionalidades específicas.
 
-##🔨 Funcionalidades del proyecto 🔨<br>
-├── 📂 **LOGGIN**<br>
-│&nbsp;&nbsp;&nbsp;├── La aplicación contiene un sistema de loggin el cual comparten tanto los usuarios como los alumnos<br>
-│&nbsp;&nbsp;&nbsp;└── Una vez loggeados tanto los profesores como los alumnos tendrán distintas pantallas con funcionalidades<br>
-│<br>
-├── 📂 **FUNCIONALIDADES DE PROFESORES**<br>
-│&nbsp;└── Menu desplegable donde puedes realizar varias opciones<br>
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── Dar de alta a un alumno o darlo de baja<br>
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── Enviar un email al alumno o a los padres<br>
-│   
-│&nbsp;&nbsp;&nbsp;└── Sección de cuadros donde cada uno corresponderá a cada clase ,<br> 
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cuando el usuario pinch uno de estos cuadros se el cargra esa clase con todas sus funcionalidad<br>
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── Poder ver todos los alumnos de esa clase  cargados en una tabla para poder seleccionarlos y verlos mejor ,<br>
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;además de un sistema de búsqueda en la base de datos para poder buscar a un alumno por id o por otro campo<br>
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── Poder crear ciertas tareas para la clase en conjunto o para un alumno en concreto<br>
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── Visualización de cuantas tareas ha completado el alumno a tiempo<br>
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── Verificar a un alumno de tu clase y crearle un correo ( cuando se añade un alumno se le asiganara su id correspomdiente de forma automática)<br> 
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── Poder mover a los alumnos entre clases ademas de poder manipularlos sus perfiles<br>
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── Poder corregir las tareas dejandoles un comentario dentro de ellas<br>
-│       
-│
-├── 📂 **FUNCIONALIDADES DEL SERVIDOR WEB ( HUB) **<br>
-│&nbsp;&nbsp;&nbsp;├── Alojamiento en la nube para poder mantener el servidor actvo<br> 
-│&nbsp;&nbsp;&nbsp;├── Control de privilegios entre usuarios<br>
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── Los profesores tendrán más funcionalidades dentro del chat respoecto a los alumnos ( como mutear a un alumno , o borra un mensaje)<br>
-│&nbsp;&nbsp;&nbsp;├── Control de reccepcion de mensajes ( los mensajes solo se enviaran a las clases correspondientes )<br> 
-│&nbsp;&nbsp;&nbsp;├── Control de metodos dentro del chat<br>
-│&nbsp;&nbsp;&nbsp;└── Control de envio envio de mensajes reciprocos<br> 
-│
-└── 📂 **FUNCIONALIDADES DE LOS ALUMNOS**<br>
-&nbsp;&nbsp;├── Interfaz cómoda donde a la izquierda tengan un menu el cual contegla despegables para poder navegar entre sus diferentes funcionalidades<br>
-&nbsp;&nbsp;├── Poder navegar entre las diferentes clases y sus contenidos<br>
-&nbsp;&nbsp;├── Poder acceder a los diferentes contenidos de las clases<br> 
-&nbsp;&nbsp;├── Poder acceder y concetarse al servidor web para chatear entre si<br>
-&nbsp;&nbsp;└── Poder ver las diferentes tareas no completas y entregrarlas cargando un archivo , además de poder ver las clasificaciones de las tareas<br>
-      
- <p align="left">
-   <img src="https://img.shields.io/badge/STATUS-EN%20DESAROLLO-green">
-   </p>
+### 📂 Funcionalidades de profesores
+- **Menú desplegable** con varias opciones:
+  - Dar de alta o baja a un alumno.
+  - Enviar un correo electrónico a un alumno o a sus padres.
+- **Sección de clases:**
+  - Cada cuadro corresponde a una clase. Al seleccionarlo, se cargarán las funcionalidades asociadas a esa clase:
+    - Ver a todos los alumnos de la clase en una tabla, con opciones de búsqueda en la base de datos por ID u otros campos.
+    - Crear tareas para toda la clase o para un alumno en particular.
+    - Visualizar cuántas tareas ha completado cada alumno a tiempo.
+    - Verificar alumnos, asignándoles un correo y un ID único de forma automática al agregarlos.
+    - Mover alumnos entre clases y gestionar sus perfiles.
+    - Corregir tareas con comentarios personalizados.
+
+### 📂 Funcionalidades del servidor web (Hub)
+- Alojamiento en la nube para mantener el servidor activo.
+- Control de privilegios entre usuarios:
+  - Los profesores tendrán funcionalidades adicionales en el chat, como silenciar a un alumno o borrar mensajes.
+- Gestión de recepción de mensajes:
+  - Los mensajes solo se enviarán a las clases correspondientes.
+- Control de métodos y envío de mensajes recíprocos dentro del chat.
+
+### 📂 Funcionalidades de los alumnos
+- Interfaz intuitiva con un menú lateral para navegar entre las diferentes funcionalidades.
+- Acceso a las clases y sus contenidos.
+- Conexión al servidor web para chatear con compañeros.
+- Visualización de tareas pendientes y opción de entregarlas subiendo un archivo.
+- Acceso a clasificaciones de las tareas.
+
+<p align="left">
+  <img src="https://img.shields.io/badge/STATUS-EN%20DESARROLLO-green" alt="Estado del proyecto">
+</p>
+
